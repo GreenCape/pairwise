@@ -1,6 +1,6 @@
 {
     "name": "richenzi/pairwise",
-    "description": "Generates test cases using pairwise technique.",
+    "description": "Test with less test cases using pairwise technique.",
     "keywords": [
         "pairwise",
         "testing"
