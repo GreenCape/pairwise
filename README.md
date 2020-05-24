@@ -14,7 +14,7 @@ composer require richenzi/pairwise
 
 ### From input
 
-Test cases can be generated using direct input
+Generate test cases using direct input
 
 ```php
 $testCases = Pairwise::fromData([
@@ -24,10 +24,45 @@ $testCases = Pairwise::fromData([
 ])->generate();
 ```
 
-or passing file path with data in correct format
+### From file
+
+Just pass the path to you data file and that's it. 
 
 ```php
 $testCases = Pairwise::fromFile('/path/to/file')->generate();
+```
+
+Parser expects file in parameter-per-row fashion. It means that each parameter
+values are on a single row, separated by a delimiter.
+
+Example:
+
+```text
+Chrome	Firefox	Opera	Safari	IE
+Windows	Ubuntu	Debian	MacOS
+Wi-Fi	LTE 3G	Slow	3G	5G
+```
+
+Default delimiter is tab, but you can tell the parser which one to use.  
+
+```php
+$testCases = Pairwise::fromFile('/path/to/file', [
+    'delimiter' => ';'
+])->generate();
+```
+
+## Output
+
+Generator returns an array of test cases. Each test case is an array with a combination 
+of values - one value for each parameter.
+
+```php
+[
+    ['Chrome', 'Windows', 'Wi-Fi'],
+    ['Chrome', 'MacOS', '5G'],
+    ['Safari', 'Ubuntu', 'Wi-Fi'],
+    // ...
+];
 ```
 
 ## License
