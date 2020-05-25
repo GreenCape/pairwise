@@ -31,7 +31,7 @@ class TestCaseGeneratorTest extends TestCase
 
         collect(array_diff(scandir($testDirectory), ['.', '..']))
             ->map(function ($fileName) use ($testDirectory) {
-                return $testDirectory . $fileName;
+                return $testDirectory . 'test_3.txt';
             })->each(function ($testFilePath) {
                 $parameters = (new FileParser())->parse($testFilePath);
                 $generator = new TestCaseGenerator($parameters);

@@ -10,6 +10,20 @@ With [Composer](https://getcomposer.org):
 composer require richenzi/pairwise
 ```
 
+## Why?
+
+> Pairwise (a.k.a. all-pairs) testing is an effective test case generation technique that is based on the observation that most faults are caused by interactions of at most two factors. Pairwise-generated test suites cover all combinations of two therefore are much smaller than exhaustive ones yet still very effective in finding defects.
+
+Instead of exhaustive testing using all possible combination of all parameters,
+we generate just enough test cases to cover all of their pairs. 
+
+In our example below we have three parameters with five, four and five values.
+Total number of all combinations is 5x4x5 = 100. With pairwise technique we generate around 25 test cases.
+Not much, but with more parameters and with more values, the savings can be huge.
+
+For one of our test (see /tests/files/generator/test_3.txt), where number of all possible combinations reaches millions, 
+pairwise gives you only few more than a hundred!
+
 ## Usage
 
 ### From input
